@@ -31,23 +31,22 @@ const questions = [
   }
 ];
 
-const flirtyCorrect = [
-  "Smart and sexy? You're a walking history book with swag. 📚🔥",
-  "You got it right. Brains like that? Dangerous. 😏",
-  "Correct! You're the reason the revolution started — hearts be shaking. 💘",
-  "Damn, you're smarter than Rizal and hotter than Lapu-Lapu in battle. 😮‍💨",
-  "You're a national treasure, no cap. 🏆",
-  "With that answer? I’d draft you for my own revolution. 💥"
+let flirtyCorrect = [
+  "That answer? Bold, brilliant, and exactly my type. 🧠🔥",
+  "You're not just smart — you're revolution-level irresistible. 😏📚",
+  "You got it right! Are you trying to overthrow my standards? ‘Cause it’s working. 💘",
+  "Brains like yours belong in a museum... or maybe in my life. 🏛️❤️",
+  "Rizal wrote novels. You just wrote your name in my heart. 😎🖋️",
+  "Correct! Are you sure you're not the national treasure I'm looking for? 🏆✨"
 ];
 
 const flirtyWrong = [
-  "Wrong answer, but you're still the plot twist I didn't see coming. 📖",
-  "That wasn’t it, but I’d still start a revolution for you. 🔥",
-  "Nope — but it’s okay. You're still giving 'main character energy'. 😌",
-  "Wrong. But if loving you is a mistake, I don’t wanna be right. 😈",
-  "History's hard, but falling for you? Too easy. ❤️",
-  "That flopped, but your charm didn’t. 💋"
+  "You missed the question, but you hit me right in the heart. Again. 🎯💘",
+  "Aww, you got it wrong? It’s okay, you still got me. And honestly… that's the real win. 😚❤️",
+  "Okay, you got it wrong… but you're still my right choice. Every single time. 💖✔️"
 ];
+
+let usedCorrectLines = [];
 
 let currentQuestion = 0;
 let score = 0;
@@ -109,7 +108,7 @@ function handleAnswer(selected, button) {
 
   if (selected === correct) {
     score++;
-    flirtyDiv.textContent = randomLine(flirtyCorrect);
+    flirtyDiv.textContent = uniqueRandomLine(flirtyCorrect);
     correctSound.currentTime = 0;
     correctSound.play();
   } else {
@@ -132,6 +131,16 @@ function randomLine(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
+function uniqueRandomLine(array) {
+  if (usedCorrectLines.length === array.length) usedCorrectLines = [];
+  let line;
+  do {
+    line = array[Math.floor(Math.random() * array.length)];
+  } while (usedCorrectLines.includes(line));
+  usedCorrectLines.push(line);
+  return line;
+}
+
 function showScore() {
   quizBox.classList.add("hidden");
   resultBox.classList.remove("hidden");
@@ -139,9 +148,9 @@ function showScore() {
 
   const finalLine = document.getElementById("final-flirty-line");
   if (score >= 3) {
-    finalLine.textContent = "You nailed the quiz... and maybe my heart too. 😉";
+    finalLine.textContent = "Certified genius... and officially the reason I’m smiling like this 😘📚";
   } else {
-    finalLine.textContent = "Okay, you didn’t pass... but you definitely passed as my type 😏❤️";
+    finalLine.textContent = "You flunked the quiz — but stole my heart like a true legend 😏💔🔥";
   }
 
   finalSound.currentTime = 0;
