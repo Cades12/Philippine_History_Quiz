@@ -36,7 +36,6 @@ let flirtyCorrect = [
   "You're not just smart — you're revolution-level irresistible. 😏📚",
   "You got it right! Are you trying to overthrow my standards? ‘Cause it’s working. 💘",
   "Brains like yours belong in a museum... or maybe in my life. 🏛️❤️",
-  "Rizal wrote novels. You just wrote your name in my heart. 😎🖋️",
   "Correct! Are you sure you're not the national treasure I'm looking for? 🏆✨"
 ];
 
