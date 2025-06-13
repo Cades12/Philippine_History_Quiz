@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Philippine History Rizz Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div id="intro">
+      <h1>📜 Philippine History Rizz Quiz</h1>
+      <p>Test your knowledge. Flirt with history. 🔥</p>
+      <button id="startBtn">Click here to start</button>
+    </div>
+
+    <div id="quiz-box" class="hidden">
+      <div id="question"></div>
+      <div id="options"></div>
+      <div id="flirty-line"></div>
+      <button id="nextBtn" class="hidden">Next Question 👉</button>
+    </div>
+
+    <div id="result-box" class="hidden">
+      <h2>Your Score:</h2>
+      <p id="score-text"></p>
+      <p id="final-flirty-line" class="flirty-end"></p>
+    </div>
+  </div>
+
+  <!-- Audio -->
+  <audio id="correctSound">
+    <source src="rizz song.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="wrongSound">
+    <source src="Sad song meme.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="finalSound">
+    <source src="rizz song.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="main.js"></script>
+</body>
+</html>
